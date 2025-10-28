@@ -1,0 +1,121 @@
+<template>
+  <main class="landing">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-decorative-circle hero-circle-1"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Manage Your Tickets Effortlessly</h1>
+          <p class="hero-subtitle">
+            A modern, responsive ticket management system. Choose your framework: React, Vue.js, or Twig.
+          </p>
+          <div class="hero-cta">
+            <template v-if="isAuthenticated">
+              <router-link to="/dashboard" class="btn btn-primary">
+                Go to Dashboard
+              </router-link>
+              <router-link to="/tickets" class="btn btn-secondary">
+                View Tickets
+              </router-link>
+            </template>
+            <template v-else>
+              <router-link to="/auth/login" class="btn btn-primary">
+                Login
+              </router-link>
+              <router-link to="/auth/signup" class="btn btn-secondary">
+                Get Started
+              </router-link>
+            </template>
+          </div>
+        </div>
+      </div>
+      <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,64L120,69.3C240,75,480,85,720,85.3C960,85,1200,75,1320,69.3L1440,64L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="url(#waveGradient)" />
+        <defs>
+          <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: #3b82f6; stop-opacity: 0.1"></stop>
+            <stop offset="100%" style="stop-color: #8b5cf6; stop-opacity: 0.05"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2>Why Choose Ticket App?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>Easy Management</h3>
+            <p>Create, view, edit, and delete tickets with an intuitive interface.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure</h3>
+            <p>Session-based authentication to keep your data safe.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Responsive</h3>
+            <p>Works seamlessly on mobile, tablet, and desktop devices.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast</h3>
+            <p>Optimized performance across all framework implementations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-decorative-circle hero-circle-2"></div>
+    </section>
+
+    <!-- Frameworks Section -->
+    <section class="frameworks">
+      <div class="container">
+        <h2>Available Implementations</h2>
+        <div class="frameworks-grid">
+          <div class="framework-card">
+            <h3>⚛️ React</h3>
+            <p>Modern, component-based architecture with hooks and routing.</p>
+            <a href="#react" class="btn btn-primary">Learn More</a>
+          </div>
+          <div class="framework-card">
+            <h3>💚 Vue.js</h3>
+            <p>Progressive framework with composition API and excellent DX.</p>
+            <a href="#vue" class="btn btn-primary">Learn More</a>
+          </div>
+          <div class="framework-card">
+            <h3>🌿 Twig</h3>
+            <p>Server-rendered templates with PHP, perfect for backend devs.</p>
+            <a href="#twig" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Get Started?</h2>
+          <p>Create an account and start managing your tickets today!</p>
+          <template v-if="!isAuthenticated">
+            <router-link to="/auth/signup" class="btn btn-primary btn-large">
+              Sign Up Now
+            </router-link>
+          </template>
+        </div>
+      </div>
+    </section>
+  </main>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { authService } from '../services/authService'
+
+const isAuthenticated = ref(authService.isAuthenticated())
+</script>
+
+<style scoped src="../styles/landing.css"></style>

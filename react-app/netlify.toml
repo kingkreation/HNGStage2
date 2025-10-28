@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  REACT_APP_ENV = "production"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  command = "npm start"
+  port = 3000

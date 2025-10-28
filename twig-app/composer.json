@@ -1,0 +1,13 @@
+{
+  "name": "ticket-app-twig",
+  "description": "Ticket Management App - Twig/PHP Implementation",
+  "require": {
+    "php": ">=7.4",
+    "twig/twig": "^3.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}

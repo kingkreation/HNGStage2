@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Ticket App{% endblock %}
+
+{% block content %}
+<main class="dashboard">
+    <div class="container">
+        <div class="dashboard-header">
+            <div>
+                <h1>Welcome, {{ user.name }}! 👋</h1>
+                <p>Here's an overview of your ticket system</p>
+            </div>
+            <a href="/twig-app/public/tickets?action=new" class="btn btn-primary">+ Create Ticket</a>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <h3>Total Tickets</h3>
+                    <p class="stat-number">{{ stats.total }}</p>
+                </div>
+            </div>
+
+            <div class="stat-card stat-open">
+                <div class="stat-icon">🟢</div>
+                <div class="stat-content">
+                    <h3>Open</h3>
+                    <p class="stat-number">{{ stats.open }}</p>
+                </div>
+            </div>
+
+            <div class="stat-card stat-in-progress">
+                <div class="stat-icon">🟡</div>
+                <div class="stat-content">
+                    <h3>In Progress</h3>
+                    <p class="stat-number">{{ stats.inProgress }}</p>
+                </div>
+            </div>
+
+            <div class="stat-card stat-closed">
+                <div class="stat-icon">⚫</div>
+                <div class="stat-content">
+                    <h3>Closed</h3>
+                    <p class="stat-number">{{ stats.closed }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Quick Actions</h2>
+            <div class="action-cards">
+                <a href="/twig-app/public/tickets" class="action-card">
+                    <div class="action-icon">📋</div>
+                    <h3>View All Tickets</h3>
+                    <p>See and manage all your tickets</p>
+                </a>
+                <a href="/twig-app/public/tickets?action=new" class="action-card">
+                    <div class="action-icon">➕</div>
+                    <h3>Create New Ticket</h3>
+                    <p>Start a new ticket to track an issue</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<link rel="stylesheet" href="/twig-app/public/styles/dashboard.css">
+{% endblock %}

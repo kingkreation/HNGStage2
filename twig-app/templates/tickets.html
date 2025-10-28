@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Tickets - Ticket App{% endblock %}
+
+{% block content %}
+<main class="tickets-page">
+    <div class="container">
+        <div class="tickets-header">
+            <h1>Ticket Management</h1>
+            <a href="/twig-app/public/tickets?action=new" class="btn btn-primary">+ Create New Ticket</a>
+        </div>
+
+        <div class="tickets-controls">
+            <div class="filter-group">
+                <label for="filter">Filter by Status:</label>
+                <select id="filter" name="status" onchange="window.location.href='/twig-app/public/tickets?status=' + this.value">
+                    <option value="all" {% if filterStatus == 'all' %}selected{% endif %}>All Tickets</option>
+                    <option value="open" {% if filterStatus == 'open' %}selected{% endif %}>Open</option>
+                    <option value="in_progress" {% if filterStatus == 'in_progress' %}selected{% endif %}>In Progress</option>
+                    <option value="closed" {% if filterStatus == 'closed' %}selected{% endif %}>Closed</option>
+                </select>
+            </div>
+            <p class="tickets-count">{{ tickets|length }} ticket(s)</p>
+        </div>
+
+        {% if tickets|length == 0 %}
+            <div class="empty-state">
+                <p>No tickets found</p>
+            </div>
+        {% else %}
+            <div class="tickets-list">
+                {% for ticket in tickets %}
+                    <div class="ticket-item">
+                        <div class="ticket-header">
+                            <h3>{{ ticket.title }}</h3>
+                            <span class="status-tag status-{{ ticket.status }}">
+                                {{ ticket.status|replace({'_': ' '}) }}
+                            </span>
+                        </div>
+                        {% if ticket.description %}
+                            <p class="ticket-description">{{ ticket.description }}</p>
+                        {% endif %}
+                        <div class="ticket-meta">
+                            <span class="priority">Priority: <strong>{{ ticket.priority }}</strong></span>
+                            <span class="date">
+                                Updated: {{ (ticket.updatedAt / 1000)|date('m/d/Y') }}
+                            </span>
+                        </div>
+                        <div class="ticket-actions">
+                            <form method="POST" action="/twig-app/public/api/tickets/{{ ticket.id }}" style="display: inline;">
+                                <a href="/twig-app/public/tickets?action=edit&id={{ ticket.id }}" class="btn btn-secondary">✏️ Edit</a>
+                                <button type="button" class="btn btn-danger" onclick="if(confirm('Delete this ticket?')) { var form = document.createElement('form'); form.method='POST'; form.action='/twig-app/public/api/tickets/{{ ticket.id }}'; var input = document.createElement('input'); input.type='hidden'; input.name='_method'; input.value='DELETE'; form.appendChild(input); document.body.appendChild(form); form.submit(); }">🗑️ Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</main>
+
+<link rel="stylesheet" href="/twig-app/public/styles/tickets.css">
+{% endblock %}

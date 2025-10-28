@@ -11,7 +11,7 @@
                 <p class="auth-subtitle">Welcome back! Login to your account</p>
 
                 {% if error %}
-                    <div class="error-message" role="alert">⚠️ {{ error }}</div>
+                    <div class="error-message" role="alert">{{ error }}</div>
                 {% endif %}
 
                 <form method="POST" novalidate>

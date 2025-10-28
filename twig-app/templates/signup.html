@@ -15,7 +15,7 @@
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" required>
                         {% if errors.name %}
-                            <div class="error-message" role="alert">⚠️ {{ errors.name }}</div>
+                            <div class="error-message" role="alert">{{ errors.name }}</div>
                         {% endif %}
                     </div>
 
@@ -23,7 +23,7 @@
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required>
                         {% if errors.email %}
-                            <div class="error-message" role="alert">⚠️ {{ errors.email }}</div>
+                            <div class="error-message" role="alert">{{ errors.email }}</div>
                         {% endif %}
                     </div>
 
@@ -31,7 +31,7 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" required>
                         {% if errors.password %}
-                            <div class="error-message" role="alert">⚠️ {{ errors.password }}</div>
+                            <div class="error-message" role="alert">{{ errors.password }}</div>
                         {% endif %}
                     </div>
 
@@ -39,7 +39,7 @@
                         <label for="confirmPassword">Confirm Password</label>
                         <input type="password" id="confirmPassword" name="confirmPassword" required>
                         {% if errors.confirmPassword %}
-                            <div class="error-message" role="alert">⚠️ {{ errors.confirmPassword }}</div>
+                            <div class="error-message" role="alert">{{ errors.confirmPassword }}</div>
                         {% endif %}
                     </div>
 

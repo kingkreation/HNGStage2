@@ -18,8 +18,8 @@ A modern ticket management web application built with React, featuring authentic
 - **Framework**: React 18.2.0
 - **Routing**: React Router DOM 6.20.0
 - **State Management**: React Hooks (useState, useContext)
+- **Build Tool**: Vite 5.0.0
 - **Styling**: CSS3 with CSS Variables
-- **Build Tool**: Create React App
 
 ## 🛠️ Installation & Setup
 
@@ -41,10 +41,10 @@ npm install
 
 3. Start the development server:
 ```bash
-npm start
+npm run dev
 ```
 
-The app will open in your browser at `http://localhost:3000`
+The app will open in your browser at `http://localhost:5173`
 
 ### Build for Production
 

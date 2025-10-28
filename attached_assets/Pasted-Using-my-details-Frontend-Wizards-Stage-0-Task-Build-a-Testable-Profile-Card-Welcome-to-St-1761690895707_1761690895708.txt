@@ -1,0 +1,20 @@
+Using (my details)
+
+🚀 Frontend Wizards — Stage 0 Task: Build a Testable Profile Card
+
+Welcome to Stage 0! 🎉 @channel 
+ In this task, you’ll build a small, accessible, responsive Profile Card component/page using semantic HTML and modern frontend patterns using plain HTML/CSS/vanilla JS . Every visible element must include a data-testid attribute so automated tests can target it.
+
+Task — Profile Card (core requirements)
+Required content (each item must exist and include the specified data-testid)Profile card root container — data-testid="test-profile-card"Name (plain text) — data-testid="test-user-name"Short biography (paragraph) — data-testid="test-user-bio"Current time (in milliseconds) — data-testid="test-user-time"Avatar image (user photo) — data-testid="test-user-avatar"Social links list (one element containing the links) — data-testid="test-user-social-links"                - Each link item may have data-testid="test-user-social-<network>" (e.g. test-user-social-twitter)
+Hobbies (list) — data-testid="test-user-hobbies"Dislikes (list) — data-testid="test-user-dislikes" All data-testid attributes are required exactly as shown so tests are stable.
+
+HTML & semantics
+Use semantic tags. Example suggestions:
+Wrap the card in <article> (test-profile-card)Name inside a <header> or an <h2> with aria-label as neededBio in a <p>Avatar inside a <figure> with <img> and <figcaption> (if caption used)Social links inside a <nav> or <ul>Hobbies/dislikes each inside <section> and presented as <ul>/<li>All interactive items (links/buttons) must be keyboard-focusable.
+Responsiveness
+Card must look good on mobile, tablet, and desktop.On small screens, stack content vertically; on wider screens, arrange avatar to the left and text to the right (or any clean layout).Use CSS that doesn’t break layout when content length changes (word-wrap, truncation with accessible expansion, etc.)
+Behavior / Implementation guidance
+The time in milliseconds should be accurate and reflect Date.now() at render or on an update tick (if you choose to update it, do so reasonably.Avatar should accept either a URL or an uploaded image (if upload used, the component must ultimately display an image URL).Social links should open in a new tab (target="_blank") with rel="noopener noreferrer".Use semantic markup and modern CSS (Flexbox or Grid).
+Acceptance criteria (checklist for grading / automated tests)
+All required elements exist and are discoverable by the given data-testids.HTML uses semantic tags (article, figure, nav, section, headings).The test-user-time value equals Date.now() (or a value within a reasonable delta if rendering delay exists) and is shown in milliseconds.Avatar renders with an alt attribute and data-testid="test-user-avatar".Social links present inside test-user-social-links and optionally individually testable (e.g., test-user-social-twitter).Hobbies and dislikes are distinct lists with their respective data-testids.Keyboard navigation works for links; focus styles are visible.Layout is responsive at typical breakpoints (mobile/tablet/desktop).

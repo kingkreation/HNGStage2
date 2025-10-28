@@ -145,7 +145,7 @@ export const Tickets = () => {
                 />
                 {errors.title && (
                   <div id="title-error" className="error-message" role="alert">
-                    ⚠️ {errors.title}
+                    {errors.title}
                   </div>
                 )}
               </div>
@@ -164,7 +164,7 @@ export const Tickets = () => {
                 />
                 {errors.description && (
                   <div id="description-error" className="error-message" role="alert">
-                    ⚠️ {errors.description}
+                    {errors.description}
                   </div>
                 )}
               </div>
@@ -186,7 +186,7 @@ export const Tickets = () => {
                   </select>
                   {errors.status && (
                     <div id="status-error" className="error-message" role="alert">
-                      ⚠️ {errors.status}
+                      {errors.status}
                     </div>
                   )}
                 </div>

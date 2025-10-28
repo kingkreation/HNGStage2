@@ -12,11 +12,14 @@ A learning project for the HNG Stage 2 Challenge demonstrating how to build a sc
 - **Last Updated**: October 28, 2025
 
 ## Recent Changes
-- **Oct 28, 2025**: Initial Replit setup
-  - Configured Vue.js implementation to run on port 5000
-  - Updated Vite config for Replit proxy compatibility (host: 0.0.0.0, HMR over WSS)
-  - Created workflow for Vue dev server
-  - Added Node.js dependencies via npm
+- **Oct 28, 2025**: Major UI modernization and framework updates
+  - Migrated React from Create React App to Vite 5.0
+  - Removed all emojis and replaced with professional SVG icons
+  - Humanized all text content for better professional tone
+  - Modernized UI design with improved gradients, hover effects, and animations
+  - Enhanced responsive layouts across all breakpoints
+  - Updated Vue and React apps with identical design language
+  - Configured both apps to run on port 5000 with Replit proxy support
 
 ## Project Architecture
 
@@ -124,9 +127,9 @@ This repository includes two other implementations that can be run instead:
 
 ### React Implementation
 - Location: `/react-app`
-- Tech: React 18, React Router, Context API
-- Run: `cd react-app && npm install && npm start`
-- Note: Would need port reconfiguration for Replit
+- Tech: React 18, React Router, Context API, Vite 5.0
+- Run: `cd react-app && npm install && npm run dev`
+- Note: Fully migrated to Vite for modern development experience
 
 ### PHP/Twig Implementation
 - Location: `/twig-app`

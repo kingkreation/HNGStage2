@@ -35,13 +35,27 @@
 .stat-card {
   background-color: white;
   border: 1px solid #e5e7eb;
+  border-left-width: 4px;
   border-radius: 0.75rem;
   padding: 2rem;
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  flex-direction: column;
   box-shadow: var(--shadow-md);
   transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(59, 130, 246, 0.02) 100%);
+  opacity: 0;
+  transition: opacity var(--transition);
 }
 
 .stat-card:hover {
@@ -49,25 +63,52 @@
   transform: translateY(-2px);
 }
 
-.stat-icon {
-  font-size: 2.5rem;
-  flex-shrink: 0;
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card {
+  border-left-color: var(--primary);
+}
+
+.stat-card.stat-open {
+  border-left-color: var(--status-open);
+}
+
+.stat-card.stat-in-progress {
+  border-left-color: var(--status-in-progress);
+}
+
+.stat-card.stat-closed {
+  border-left-color: var(--status-closed);
+}
+
+.stat-content {
+  position: relative;
+  z-index: 1;
 }
 
 .stat-content h3 {
   font-size: 0.875rem;
   color: #6b7280;
   font-weight: 500;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.75rem 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .stat-number {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   color: var(--primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.813rem;
+  color: #9ca3af;
+  font-weight: 400;
 }
 
 .stat-open .stat-number {
@@ -114,21 +155,27 @@
   transform: translateY(-5px);
 }
 
-.action-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: block;
+.action-card svg {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  transition: transform var(--transition);
+}
+
+.action-card:hover svg {
+  transform: scale(1.1);
 }
 
 .action-card h3 {
-  color: var(--primary);
-  margin-bottom: 0.5rem;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
 }
 
 .action-card p {
   color: #6b7280;
   font-size: 0.95rem;
   margin: 0;
+  line-height: 1.5;
 }
 
 @media (max-width: 1024px) {

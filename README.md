@@ -15,6 +15,11 @@ This project demonstrates how to build a scalable ticket management system acros
 - **Form Validation** with real-time error feedback
 - **Toast Notifications** for user feedback
 
+## 🧠 About the Developer
+
+Hi, I’m Joshua Kolawole (King) — a purpose-driven Frontend Developer and tech enthusiast passionate about creating intuitive digital experiences.
+From coding web apps to designing interfaces and solving real-world problems, I love bringing creativity and logic together. This project reflects my learning, persistence, and evolving design sense throughout the HNG Internship.
+
 ## 📚 Framework Implementations
 
 ### ⚛️ React Implementation

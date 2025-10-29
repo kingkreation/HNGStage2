@@ -1,26 +1,18 @@
-FROM richarvey/nginx-php-fpm:3.1.6
+FROM php:8.1-cli
 
-# Copy application code
-COPY . /var/www/html
+# Install Composer globally
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Image configuration
-ENV SKIP_COMPOSER 0
-ENV WEBROOT /var/www/html/public
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
-
-# App config
-ENV APP_ENV production
-ENV APP_DEBUG false
-
-# Allow composer to run as root
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
-# Set working directory
 WORKDIR /var/www/html
 
-# Install composer dependencies
+COPY . /var/www/html
+
+# Install PHP extensions required for Twig or your app
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-CMD ["/start.sh"]
+EXPOSE 8080
+
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]

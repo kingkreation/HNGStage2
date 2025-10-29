@@ -54,7 +54,7 @@ src/
 │   ├── authService.js
 │   └── ticketService.js
 ├── context/             # React Context for state
-│   └── ToastContext.js
+│   └── ToastContext.jsx
 └── styles/              # Component-specific CSS
 ```
 

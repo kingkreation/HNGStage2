@@ -112,7 +112,7 @@ export const Landing = () => {
               <div className="framework-badge">Vue</div>
               <h3>Vue.js Implementation</h3>
               <p>Progressive framework leveraging Vue 3 Composition API for reactive, maintainable code with excellent developer experience.</p>
-              <a href="#vue" className="btn btn-outline">Learn More</a>
+              <a href="https://kinghngstage2.netlify.app" className="btn btn-outline">Learn More</a>
             </div>
             <div className="framework-card">
               <div className="framework-badge">PHP</div>

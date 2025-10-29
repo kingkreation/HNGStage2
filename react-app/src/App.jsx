@@ -8,9 +8,7 @@ import {
 } from 'react-router-dom';
 import { ToastProvider } from './context/ToastContext';
 
-// Configure future flags
-UNSAFE_enhanceManualRouteObjects.v7_startTransition = true;
-UNSAFE_enhanceManualRouteObjects.v7_relativeSplatPath = true;
+
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';

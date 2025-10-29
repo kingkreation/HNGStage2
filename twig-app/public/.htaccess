@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Allow direct access to static files
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico)$">
+    Allow from all
+</FilesMatch>

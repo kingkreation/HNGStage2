@@ -43,7 +43,7 @@ try {
             $password = $_POST['password'] ?? '';
             $result = AuthService::login($email, $password);
             
-            if ($result['ok']) {
+                if ($result['ok']) {
                 $_SESSION['ticketapp_session'] = json_encode([
                     'token' => 'mock-token-' . time(),
                     'user' => [
@@ -52,7 +52,7 @@ try {
                         'email' => $result['user']['email']
                     ]
                 ]);
-                header('Location: /twig-app/public/dashboard');
+                header('Location: /dashboard');
                 exit;
             } else {
                 $error = $result['message'];
@@ -72,7 +72,7 @@ try {
             
             $result = AuthService::signup($name, $email, $password, $confirmPassword);
             
-            if ($result['ok']) {
+                if ($result['ok']) {
                 $_SESSION['ticketapp_session'] = json_encode([
                     'token' => 'mock-token-' . time(),
                     'user' => [
@@ -81,7 +81,7 @@ try {
                         'email' => $result['user']['email']
                     ]
                 ]);
-                header('Location: /twig-app/public/dashboard');
+                header('Location: /dashboard');
                 exit;
             } else {
                 $errors = $result['errors'] ?? [];
@@ -93,8 +93,8 @@ try {
         ]);
     }
     elseif ($request_uri === '/dashboard') {
-        if (!AuthService::isAuthenticated()) {
-            header('Location: /twig-app/public/auth/login');
+            if (!AuthService::isAuthenticated()) {
+            header('Location: /auth/login');
             exit;
         }
         
@@ -108,8 +108,8 @@ try {
         ]);
     }
     elseif ($request_uri === '/tickets') {
-        if (!AuthService::isAuthenticated()) {
-            header('Location: /twig-app/public/auth/login');
+            if (!AuthService::isAuthenticated()) {
+            header('Location: /auth/login');
             exit;
         }
         
@@ -161,11 +161,11 @@ try {
     }
     elseif ($request_uri === '/logout') {
         AuthService::logout();
-        header('Location: /twig-app/public/');
+    header('Location: /');
         exit;
     }
     else {
-        header('Location: /twig-app/public/');
+    header('Location: /');
     }
 } catch (Exception $e) {
     http_response_code(500);

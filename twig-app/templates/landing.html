@@ -15,11 +15,11 @@
                 </p>
                 <div class="hero-cta">
                     {% if isAuthenticated %}
-                        <a href="/twig-app/public/dashboard" class="btn btn-primary">Go to Dashboard</a>
-                        <a href="/twig-app/public/tickets" class="btn btn-secondary">View Tickets</a>
+                        <a href="/dashboard" class="btn btn-primary">Go to Dashboard</a>
+                        <a href="/tickets" class="btn btn-secondary">View Tickets</a>
                     {% else %}
-                        <a href="/twig-app/public/auth/login" class="btn btn-primary">Login</a>
-                        <a href="/twig-app/public/auth/signup" class="btn btn-secondary">Get Started</a>
+                        <a href="/auth/login" class="btn btn-primary">Login</a>
+                        <a href="/auth/signup" class="btn btn-secondary">Get Started</a>
                     {% endif %}
                 </div>
             </div>
@@ -115,12 +115,12 @@
                 <h2>Ready to Transform Your Workflow?</h2>
                 <p>Join thousands of teams already managing their support tickets more efficiently.</p>
                 {% if not isAuthenticated %}
-                    <a href="/twig-app/public/auth/signup" class="btn btn-primary btn-large">Create Free Account</a>
+                    <a href="/auth/signup" class="btn btn-primary btn-large">Create Free Account</a>
                 {% endif %}
             </div>
         </div>
     </section>
 </main>
 
-<link rel="stylesheet" href="/twig-app/public/styles/landing.css">
+<link rel="stylesheet" href="/styles/landing.css">
 {% endblock %}

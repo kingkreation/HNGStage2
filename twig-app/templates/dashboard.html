@@ -5,12 +5,12 @@
 {% block content %}
 <main class="dashboard">
     <div class="container">
-        <div class="dashboard-header">
+            <div class="dashboard-header">
             <div>
                 <h1>Welcome back, {{ user.name }}</h1>
                 <p>Here's an overview of your ticket system performance</p>
             </div>
-            <a href="/twig-app/public/tickets?action=new" class="btn btn-primary">Create New Ticket</a>
+            <a href="/tickets?action=new" class="btn btn-primary">Create New Ticket</a>
         </div>
 
         <div class="stats-grid">
@@ -50,14 +50,14 @@
         <div class="dashboard-section">
             <h2>Quick Actions</h2>
             <div class="action-cards">
-                <a href="/twig-app/public/tickets" class="action-card">
+                <a href="/tickets" class="action-card">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
                     </svg>
                     <h3>View All Tickets</h3>
                     <p>Browse and manage your existing tickets</p>
                 </a>
-                <a href="/twig-app/public/tickets?action=new" class="action-card">
+                <a href="/tickets?action=new" class="action-card">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 4v16m8-8H4"></path>
                     </svg>
@@ -69,5 +69,5 @@
     </div>
 </main>
 
-<link rel="stylesheet" href="/twig-app/public/styles/dashboard.css">
+<link rel="stylesheet" href="/styles/dashboard.css">
 {% endblock %}

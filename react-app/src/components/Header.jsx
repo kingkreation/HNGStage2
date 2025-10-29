@@ -49,7 +49,7 @@ export const Header = () => {
           </button>
 
           <nav className={`nav ${isMobileMenuOpen ? 'active' : ''}`}>
-            <Link to="/" className="nav-link">Home</Link>
+            <Link to="https://kinghngstage2.vercel.app/" className="nav-link">Home</Link>
             
             {isAuthenticated && (
               <>

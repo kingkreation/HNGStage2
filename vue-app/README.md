@@ -33,6 +33,16 @@ npm run dev
 
 Opens at `http://localhost:5173`
 
+## Live Demo
+
+Check out the live deployment at: https://kinghngstage2.netlify.app
+
+You can also explore the other implementations:
+- React version: https://kinghngstage2.vercel.app
+- PHP/Twig version: https://kinghngstage2.onrender.com
+
+...
+
 ## Project Structure
 
 I organized everything by feature type:

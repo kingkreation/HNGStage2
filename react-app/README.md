@@ -33,6 +33,16 @@ npm run dev
 
 The app will start at `http://localhost:5173`
 
+## Live Demo
+
+Check out the live deployment at: https://kinghngstage2.vercel.app
+
+You can also explore the other implementations:
+- Vue.js version: https://kinghngstage2.netlify.app
+- PHP/Twig version: https://kinghngstage2.onrender.com
+
+...
+
 ## How I Structured It
 
 I kept the components modular and reusable:

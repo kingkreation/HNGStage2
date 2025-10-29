@@ -34,6 +34,14 @@ php -S localhost:8000 -t public
 
 Visit `http://localhost:8000` and you're good to go!
 
+## Live Demo
+
+Check out the live deployment at: https://kinghngstage2.onrender.com
+
+You can also explore the other implementations:
+- React version: https://kinghngstage2.vercel.app
+- Vue.js version: https://kinghngstage2.netlify.app
+
 ## Project Structure
 
 I kept it organized by separating concerns:

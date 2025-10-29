@@ -73,6 +73,12 @@ Check out `DEPLOYMENT.md` for detailed deployment instructions for each platform
 
 ## Try It Out
 
+You can explore all three live implementations here:
+
+- **React Version**: https://kinghngstage2.vercel.app
+- **Vue.js Version**: https://kinghngstage2.netlify.app
+- **PHP/Twig Version**: https://kinghngstage2.onrender.com
+
 All three versions use the same demo credentials:
 - **Email:** demo@ticketapp.test
 - **Password:** Password123!

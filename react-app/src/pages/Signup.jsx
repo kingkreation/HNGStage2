@@ -97,7 +97,7 @@ export const Signup = () => {
                 />
                 {errors.name && (
                   <div id="name-error" className="error-message" role="alert">
-                    ⚠️ {errors.name}
+                    {errors.name}
                   </div>
                 )}
               </div>
@@ -116,7 +116,7 @@ export const Signup = () => {
                 />
                 {errors.email && (
                   <div id="email-error" className="error-message" role="alert">
-                    ⚠️ {errors.email}
+                    {errors.email}
                   </div>
                 )}
               </div>
@@ -135,7 +135,7 @@ export const Signup = () => {
                 />
                 {errors.password && (
                   <div id="password-error" className="error-message" role="alert">
-                    ⚠️ {errors.password}
+                    {errors.password}
                   </div>
                 )}
               </div>
@@ -154,7 +154,7 @@ export const Signup = () => {
                 />
                 {errors.confirmPassword && (
                   <div id="confirmPassword-error" className="error-message" role="alert">
-                    ⚠️ {errors.confirmPassword}
+                    {errors.confirmPassword}
                   </div>
                 )}
               </div>

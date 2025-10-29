@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "build"
+  publish = "dist"
 
 [build.environment]
   REACT_APP_ENV = "production"
@@ -11,5 +11,5 @@
   status = 200
 
 [dev]
-  command = "npm start"
-  port = 3000
+  command = "npm run dev"
+  port = 5000

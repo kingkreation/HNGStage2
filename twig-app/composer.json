@@ -1,5 +1,5 @@
 {
-  "name": "ticket-app-twig",
+"name": "kingkreation/ticket-app-twig",
   "description": "Ticket Management App - Twig/PHP Implementation",
   "require": {
     "php": ">=7.4",

@@ -31,7 +31,10 @@ export const Header = () => {
       <div className="container">
         <div className="header-content">
           <Link to="/" className="logo">
-            <h1>🎫 Ticket App</h1>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+            <h1>Ticket App</h1>
           </Link>
 
           <button
@@ -40,11 +43,13 @@ export const Header = () => {
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
-            ☰
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
 
           <nav className={`nav ${isMobileMenuOpen ? 'active' : ''}`}>
-            <Link to="/" className="nav-link">Home</Link>
+            <Link to="https://kinghngstage2.vercel.app/" className="nav-link">Home</Link>
             
             {isAuthenticated && (
               <>

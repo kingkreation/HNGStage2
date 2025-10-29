@@ -1,283 +1,182 @@
 # Ticket App - Vue.js Implementation
 
-A modern ticket management web application built with Vue 3 and Composition API, featuring authentication, dashboard analytics, and complete CRUD operations for ticket management.
+This is the Vue 3 version of my ticket management app. I wanted to learn Vue's Composition API properly, so this was a great excuse to dive deep into it. The reactivity system is honestly pretty elegant once you get used to it.
 
-## 🚀 Features
+## Features
 
-- **Landing Page**: Hero section with call-to-action buttons and feature showcase
-- **Authentication**: Secure login and signup with session management
-- **Dashboard**: Summary statistics of ticket system (total, open, in progress, closed)
-- **Ticket Management**: Complete CRUD operations (Create, Read, Update, Delete)
-- **Form Validation**: Real-time validation with inline error messages
-- **Toast Notifications**: Success and error notifications for user feedback
-- **Responsive Design**: Fully responsive across mobile, tablet, and desktop
-- **Accessibility**: Semantic HTML, ARIA labels, and keyboard navigation support
+- Clean landing page with SVG wave animations
+- Login and signup with session management
+- Dashboard with live ticket statistics
+- Full CRUD for managing tickets
+- Form validation that feels natural
+- Toast notifications using Pinia
+- Works great on mobile and desktop
+- Built with accessibility in mind
 
-## 📋 Tech Stack
+## Tech Stack
 
-- **Framework**: Vue 3.4.0
-- **Routing**: Vue Router 4.2.0
-- **State Management**: Pinia 2.1.0 (for toast notifications)
-- **Build Tool**: Vite 5.0.0
-- **Styling**: CSS3 with CSS Variables
+- **Vue 3.4.0** - Using Composition API
+- **Vue Router 4.2.0** - For routing and navigation guards
+- **Pinia 2.1.0** - For managing toast notification state
+- **Vite 5.0.0** - Lightning fast dev server and builds
+- **CSS3** - With CSS variables matching the other versions
 
-## 🛠️ Installation & Setup
+## Getting Started
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
+You'll need Node.js (v14+), then:
 
-### Installation
-
-1. Navigate to the vue-app directory:
 ```bash
 cd vue-app
-```
-
-2. Install dependencies:
-```bash
 npm install
-```
-
-3. Start the development server:
-```bash
 npm run dev
 ```
 
-The app will open in your browser at `http://localhost:5173`
+Opens at `http://localhost:5173`
 
-### Build for Production
+## Project Structure
 
-```bash
-npm run build
+I organized everything by feature type:
+
+```
+src/
+├── components/          # Reusable components
+│   ├── Header.vue
+│   ├── Footer.vue
+│   └── Toast.vue
+├── pages/               # Route components
+│   ├── Landing.vue
+│   ├── Login.vue
+│   ├── Signup.vue
+│   ├── Dashboard.vue
+│   └── Tickets.vue
+├── router/              # Vue Router setup
+│   └── index.js
+├── services/            # Business logic
+│   ├── authService.js
+│   └── ticketService.js
+├── stores/              # Pinia stores
+│   └── toastStore.js
+└── styles/              # Component styles
 ```
 
-This creates an optimized production build in the `dist/` directory.
+## Authentication Flow
 
-## 🔐 Authentication
+Sessions are stored in localStorage. The session object:
 
-### Demo Credentials
-- **Email**: `demo@ticketapp.test`
-- **Password**: `Password123!`
-
-### How Authentication Works
-
-- Session tokens are stored in localStorage under the key `ticketapp_session`
-- Session object structure:
-  ```json
-  {
-    "token": "mock-token-timestamp",
-    "user": {
-      "id": 1,
-      "name": "Demo User",
-      "email": "demo@ticketapp.test"
-    }
-  }
-  ```
-- Protected routes redirect unauthenticated users to the login page
-- Logging out clears the session and redirects to the landing page
-
-## 📝 Ticket Management
-
-### Ticket Data Structure
-
-```javascript
+```json
 {
-  "id": 1,
-  "title": "Fix login bug",
-  "description": "Steps to reproduce...",
-  "status": "open",
-  "priority": "high",
-  "createdAt": 1690000000000,
-  "updatedAt": 1690000000000
+  "token": "mock-token-timestamp",
+  "user": {
+    "id": 1,
+    "name": "Demo User",
+    "email": "demo@ticketapp.test"
+  }
 }
 ```
 
-### Validation Rules
+**Test it with:**
+- Email: demo@ticketapp.test
+- Password: Password123!
 
-- **Title**: Required, non-empty string
-- **Status**: Required, must be one of: `open`, `in_progress`, `closed`
-- **Description**: Optional, minimum 10 characters if provided
-- **Priority**: Optional, must be one of: `low`, `medium`, `high`
+I use Vue Router's navigation guards to protect routes. If you try to access the dashboard without logging in, you get redirected to the login page.
 
-### Status Colors
+## Ticket Data
 
-- 🟢 **Open** (Green): `#16a34a`
-- 🟡 **In Progress** (Amber): `#f59e0b`
-- ⚫ **Closed** (Gray): `#6b7280`
+Tickets live in localStorage under `ticketapp_tickets`. Each one has:
 
-## 🎨 UI Components
+- **id** - Generated incrementally
+- **title** - Required field
+- **description** - Optional but must be 10+ characters if you add it
+- **status** - "open", "in_progress", or "closed"
+- **priority** - "low", "medium", or "high"
+- **createdAt** - When it was created
+- **updatedAt** - Last modification time
 
-### Header
-- Navigation with responsive mobile menu
-- Links to Home, Dashboard, Tickets
-- Login/Signup or Logout button based on auth status
+## How Validation Works
 
-### Landing Page
-- Hero section with wave SVG background
-- Decorative circles
-- Feature cards
-- Framework showcase
-- Call-to-action section
+I use Vue's reactive refs to track form state and errors. Validation happens on blur for most fields and on submit. Error messages appear inline below each field, and the submit button stays disabled until everything's valid.
 
-### Auth Pages
-- Login form with email and password validation
-- Signup form with password confirmation
-- Demo credentials displayed
-- Error messages with inline display
+## Deploying to Netlify
 
-### Dashboard
-- Summary statistics (total, open, in progress, closed tickets)
-- Quick action cards
-- Create ticket button
+This project is ready to deploy to Netlify. The `netlify.toml` file is already configured with the right build command and publish directory.
 
-### Tickets Page
-- List of all tickets with filtering by status
-- Inline ticket creation/edit form
-- Delete confirmation modal
-- Real-time form validation
-- Status tags with color coding
+**Deploy via Netlify CLI:**
+```bash
+npm install -g netlify-cli
+netlify init
+```
 
-### Footer
-- Company information
-- Quick links
-- Copyright notice
+Or just connect your GitHub repo to Netlify and it handles everything automatically.
 
-## 🚀 Deployment
+**Deploy via Git:**
+1. Push to GitHub
+2. Go to Netlify and click "New site from Git"
+3. Choose your repo
+4. Netlify auto-detects Vite and deploys
 
-### Deploy to Netlify
+The redirects rule in `netlify.toml` ensures Vue Router works correctly in production.
 
-1. Build the project:
+## Using Pinia
+
+I used Pinia for the toast store because it's simpler than Vuex and works great with the Composition API. The toast store handles showing success/error messages across the entire app.
+
+```javascript
+import { useToastStore } from '@/stores/toastStore'
+
+const toast = useToastStore()
+toast.showToast('Ticket created!', 'success')
+```
+
+## Accessibility Features
+
+I made sure this is accessible:
+
+- Semantic HTML elements everywhere
+- Keyboard navigation works throughout
+- Form labels connected to inputs
+- Error messages use aria-describedby
+- Proper heading hierarchy
+- Focus states are clearly visible
+- Good color contrast ratios
+
+## Production Build
+
+To build for production:
+
 ```bash
 npm run build
 ```
 
-2. Deploy using Netlify CLI:
-```bash
-npm install -g netlify-cli
-netlify deploy --prod --dir=dist
-```
-
-Or connect your GitHub repository to Netlify for automatic deployments.
-
-### Deploy to Vercel
+Creates an optimized bundle in `dist/`. You can preview it locally with:
 
 ```bash
-npm install -g vercel
-vercel --prod
+npm run preview
 ```
 
-## ♿ Accessibility Features
+## What I Learned
 
-- Semantic HTML elements (`<header>`, `<nav>`, `<main>`, `<footer>`)
-- Proper heading hierarchy
-- Form labels associated with inputs via `for`
-- Error messages linked with `aria-describedby`
-- Focus visible styles on interactive elements
-- ARIA labels for icon buttons and regions
-- Keyboard navigation support
-- Color contrast compliance (WCAG AA)
-- SVG decorative elements marked with `aria-hidden`
+Vue's Composition API felt weird at first coming from React, but I grew to really like it. The ref and reactive system makes state management intuitive, and Pinia is way cleaner than Redux ever was.
 
-## 📁 Project Structure
+The router's navigation guards are super handy for protecting routes, and overall Vue felt more batteries-included than React without being as opinionated as Angular.
 
-```
-vue-app/
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── Header.vue
-│   │   ├── Footer.vue
-│   │   ├── Toast.vue
-│   ├── pages/
-│   │   ├── Landing.vue
-│   │   ├── Login.vue
-│   │   ├── Signup.vue
-│   │   ├── Dashboard.vue
-│   │   └── Tickets.vue
-│   ├── services/
-│   │   ├── authService.js
-│   │   └── ticketService.js
-│   ├── stores/
-│   │   └── toastStore.js
-│   ├── router/
-│   │   └── index.js
-│   ├── styles/
-│   │   ├── index.css
-│   │   ├── header.css
-│   │   ├── footer.css
-│   │   ├── toast.css
-│   │   ├── landing.css
-│   │   ├── auth.css
-│   │   ├── dashboard.css
-│   │   └── tickets.css
-│   ├── App.vue
-│   └── main.js
-├── index.html
-├── vite.config.js
-├── package.json
-└── README.md
-```
+## Things to Know
 
-## 🔄 User Flows
+- All data is client-side in localStorage
+- No backend required
+- Clear your browser storage to reset data
+- The ticket service module handles all CRUD operations
+- Pinia store persists toasts across route changes
 
-### Landing Page → Login → Dashboard
-1. User lands on the landing page
-2. Clicks "Login" button
-3. Enters demo credentials
-4. Redirected to dashboard with session stored
-5. Sees ticket statistics
+## Potential Improvements
 
-### Create Ticket
-1. Click "Create New Ticket" button
-2. Fill form: Title (required), Description, Status, Priority
-3. Form validates in real-time
-4. Submit to add to ticket list
-5. Success toast notification
+If I had more time, I'd add:
+- Ticket filtering by status and priority
+- Search functionality
+- Export tickets to CSV
+- Dark mode toggle
 
-### Edit Ticket
-1. Click "Edit" button on a ticket
-2. Form pre-fills with ticket data
-3. Modify fields and submit
-4. Updates ticket and redirects to list
-5. Success notification
+But for the scope of this project, it covers all the requirements!
 
-### Delete Ticket
-1. Click "Delete" button on a ticket
-2. Confirmation modal appears
-3. Confirm deletion
-4. Ticket removed from list
-5. Success notification
+---
 
-## 🐛 Known Issues
-
-- None currently documented
-
-## 🧪 Testing
-
-To manually test the application:
-
-1. Load landing page and verify hero wave and decorative circles
-2. Test signup and login flows
-3. Verify dashboard displays correct statistics
-4. Create, edit, and delete tickets
-5. Test form validation with invalid inputs
-6. Test responsive design at mobile (320px), tablet (768px), and desktop (1440px)
-7. Test keyboard navigation through all interactive elements
-8. Verify logout clears session and redirects
-
-## 📝 Notes
-
-- Data is stored in localStorage and will persist in the browser
-- To reset data, clear browser cache or use browser dev tools
-- No external API calls - all data operations are local
-- Mock authentication allows any signup but requires demo credentials for login
-- Pinia is used for toast state management with Composition API
-
-## 🤝 Contributing
-
-This is a learning project for HNG Stage 2. For improvements or issues, please refer to the main repository README.
-
-## 📄 License
-
-This project is part of the HNG Stage 2 challenge.
+One of three implementations for my HNG Stage 2 submission. Check out the React and Twig versions too!

@@ -18,7 +18,7 @@
                 :disabled="loading"
               />
               <div v-if="errors.email" id="email-error" class="error-message" role="alert">
-                ⚠️ {{ errors.email }}
+                {{ errors.email }}
               </div>
             </div>
 
@@ -33,7 +33,7 @@
                 :disabled="loading"
               />
               <div v-if="errors.password" id="password-error" class="error-message" role="alert">
-                ⚠️ {{ errors.password }}
+                {{ errors.password }}
               </div>
             </div>
 

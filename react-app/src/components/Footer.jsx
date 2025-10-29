@@ -24,13 +24,13 @@ export const Footer = () => {
 
           <div className="footer-section">
             <h4>Contact</h4>
-            <p>Email: support@ticketapp.test</p>
+            <p>Email: kolawolejoshua459@gmail.com</p>
             <p>© {currentYear} Ticket App. All rights reserved.</p>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>Built with ❤️ for HNG Stage 2</p>
+          <p>Built with ❤️ by King for HNG Stage 2</p>
         </div>
       </div>
     </footer>

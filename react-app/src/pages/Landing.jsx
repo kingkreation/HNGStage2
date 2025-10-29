@@ -106,7 +106,7 @@ export const Landing = () => {
               <div className="framework-badge">React</div>
               <h3>React Implementation</h3>
               <p>Component-based architecture powered by React 18 with hooks, routing, and efficient state management.</p>
-              <a href="#react" className="btn btn-outline">Learn More</a>
+              <a href="https://kinghngstage2.vercel.app/#react" className="btn btn-outline">Learn More</a>
             </div>
             <div className="framework-card">
               <div className="framework-badge">Vue</div>

@@ -1,6 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { 
+  BrowserRouter as Router, 
+  Routes, 
+  Route, 
+  Navigate,
+  UNSAFE_enhanceManualRouteObjects,
+} from 'react-router-dom';
 import { ToastProvider } from './context/ToastContext';
+
+// Configure future flags
+UNSAFE_enhanceManualRouteObjects.v7_startTransition = true;
+UNSAFE_enhanceManualRouteObjects.v7_relativeSplatPath = true;
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';

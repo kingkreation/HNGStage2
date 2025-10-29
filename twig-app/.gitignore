@@ -1,26 +1,33 @@
-# Composer
+# PHP/Composer project .gitignore
 vendor/
 composer.lock
-
-# PHP
 .php_cs
 .php_cs.cache
 
-# IDE
+# IDEs and editors
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS
+# OS generated files
 .DS_Store
 Thumbs.db
 
 # Data files
-data/tickets.json
+data/*.json
 sessions/
 
 # Environment
 .env
-.env.local
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
